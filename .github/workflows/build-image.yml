@@ -1,0 +1,36 @@
+name: Build PisoWifi Image
+
+on:
+  workflow_dispatch:
+    inputs:
+      board:
+        description: 'Board to build'
+        required: true
+        default: 'orangepi1'
+        type: choice
+        options:
+          - orangepi1
+          - orangepipc
+          - orangepizero3
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 120
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v4
+      - name: Free up disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc
+          sudo apt-get clean
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y git
+      - name: Build image
+        run: chmod +x build.sh && ./build.sh ${{ github.event.inputs.board }}
+      - name: Upload image
+        uses: actions/upload-artifact@v4
+        with:
+          name: pisowifi-${{ github.event.inputs.board }}
+          path: armbian-build/output/images/*.img
+          retention-days: 7
