@@ -5,7 +5,11 @@
 
 set -e
 
-OVERLAY_DIR="/root/overlay"   # Armbian mounts userpatches here
+# Armbian passes $SRC (build framework root) and $USERPATCHES_PATH
+# Our overlay is copied to userpatches/overlay by the workflow
+OVERLAY_DIR="${USERPATCHES_PATH}/overlay"
+# Fallback to old path if needed
+[ -d "$OVERLAY_DIR" ] || OVERLAY_DIR="/root/overlay"
 TARGET_DIR="$SDCARD"          # Armbian's target SD card mount point
 
 log() { echo "[customize] $*"; }
