@@ -23,18 +23,17 @@ jobs:
 
       - name: Free up disk space
         run: |
-          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /usr/local/share/boost
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc
           sudo apt-get clean
           df -h
 
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y git curl
+          sudo apt-get install -y git curl qemu-user-static binfmt-support
 
       - name: Clone Armbian build framework
-        run: |
-          git clone --depth=1 https://github.com/armbian/build.git armbian-build
+        run: git clone --depth=1 https://github.com/armbian/build.git armbian-build
 
       - name: Copy userpatches
         run: |
