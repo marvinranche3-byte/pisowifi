@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>PotsWorks PisoWifi</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b27;
+    --card2: #1e2436;
+    --border: #2a3050;
+    --accent: #4f8ef7;
+    --accent2: #7c5cfc;
+    --green: #22c55e;
+    --yellow: #f59e0b;
+    --red: #ef4444;
+    --text: #e8eaf6;
+    --text2: #8b90b0;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --font: 'Segoe UI', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--bg); color: var(--text); font-family: var(--font);
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; padding: 16px;
+    background-image: radial-gradient(ellipse at 20% 20%, rgba(79,142,247,.08) 0%, transparent 60%),
+                      radial-gradient(ellipse at 80% 80%, rgba(124,92,252,.08) 0%, transparent 60%);
+  }
+
+  /* ── Card ── */
+  .portal-card {
+    width: 100%; max-width: 400px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,.6);
+  }
+
+  /* ── Header ── */
+  .portal-header {
+    background: linear-gradient(135deg, #1a2040, #0f1530);
+    padding: 28px 24px 22px; text-align: center;
+    border-bottom: 1px solid var(--border); position: relative;
+  }
+  .portal-header::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(79,142,247,.1), rgba(124,92,252,.1));
+    pointer-events: none;
+  }
+  .portal-logo {
+    width: 64px; height: 64px; margin: 0 auto 12px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 18px; display: flex; align-items: center; justify-content: center;
+    font-size: 30px; box-shadow: 0 8px 24px rgba(79,142,247,.3);
+  }
+  /* Custom banner replaces logo when set */
+  .portal-banner-img {
+    max-width: 200px; max-height: 64px; margin: 0 auto 12px;
+    display: block; border-radius: 8px; object-fit: contain;
+  }
+  .portal-name {
+    font-size: 20px; font-weight: 800; letter-spacing: -.3px;
+    background: linear-gradient(135deg, #fff, #a0b4ff);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .portal-tagline { font-size: 12px; color: var(--text2); margin-top: 4px; }
+
+  /* ── Body ── */
+  .portal-body { padding: 20px; }
+
+  /* ── Price Badge ── */
+  .price-badge {
+    background: var(--card2); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 12px 16px;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .price-label { font-size: 12px; color: var(--text2); }
+  .price-value { font-size: 22px; font-weight: 800; color: var(--accent); }
+  .price-unit { font-size: 11px; color: var(--text2); }
+
+  /* ── Session Timer (shown when active) ── */
+  .session-box {
+    background: linear-gradient(135deg, rgba(34,197,94,.12), rgba(34,197,94,.05));
+    border: 1px solid rgba(34,197,94,.3); border-radius: var(--radius-sm);
+    padding: 14px 16px; margin-bottom: 16px; text-align: center;
+    display: none;
+  }
+  .session-box.show { display: block; }
+  .session-label { font-size: 11px; color: var(--text2); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .5px; }
+  .session-timer { font-size: 36px; font-weight: 800; color: var(--green); letter-spacing: 2px; font-variant-numeric: tabular-nums; }
+  .session-sub { font-size: 11px; color: var(--text2); margin-top: 4px; }
+
+  /* ── Tabs ── */
+  .tabs { display: flex; gap: 6px; margin-bottom: 16px; }
+  .tab {
+    flex: 1; padding: 9px; border-radius: var(--radius-sm); font-size: 13px;
+    font-weight: 600; cursor: pointer; border: 1px solid var(--border);
+    background: transparent; color: var(--text2); transition: all .15s; text-align: center;
+  }
+  .tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .tab:hover:not(.active) { border-color: var(--accent); color: var(--accent); }
+
+  /* ── Tab Panels ── */
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── Coin Panel ── */
+  .coin-instruction {
+    background: var(--card2); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 14px 16px; margin-bottom: 14px;
+    font-size: 13px; color: var(--text2); line-height: 1.6;
+  }
+  .coin-instruction strong { color: var(--text); display: block; margin-bottom: 4px; }
+
+  .coin-status {
+    border-radius: var(--radius-sm); padding: 12px 16px; margin-bottom: 14px;
+    font-size: 13px; text-align: center; display: none;
+  }
+  .coin-status.waiting {
+    display: block; background: rgba(245,158,11,.1); border: 1px solid rgba(245,158,11,.3);
+    color: var(--yellow);
+  }
+  .coin-status.credited {
+    display: block; background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.3);
+    color: var(--green);
+  }
+
+  .btn-coin {
+    width: 100%; padding: 14px; border-radius: var(--radius-sm); border: none;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff; font-size: 15px; font-weight: 700; cursor: pointer;
+    transition: opacity .15s, transform .1s; letter-spacing: .3px;
+    box-shadow: 0 4px 16px rgba(79,142,247,.3);
+  }
+  .btn-coin:hover { opacity: .9; }
+  .btn-coin:active { transform: scale(.98); }
+  .btn-coin:disabled { opacity: .5; cursor: not-allowed; }
+
+  /* ── Voucher Panel ── */
+  .voucher-input-wrap { position: relative; margin-bottom: 12px; }
+  .voucher-input {
+    width: 100%; padding: 12px 14px; background: var(--card2);
+    border: 1px solid var(--border); border-radius: var(--radius-sm);
+    color: var(--text); font-size: 15px; font-family: monospace;
+    letter-spacing: 2px; text-transform: uppercase; outline: none;
+    transition: border-color .15s;
+  }
+  .voucher-input:focus { border-color: var(--accent); }
+  .voucher-input::placeholder { letter-spacing: 0; font-family: var(--font); color: var(--text2); font-size: 13px; }
+
+  .btn-voucher {
+    width: 100%; padding: 13px; border-radius: var(--radius-sm); border: none;
+    background: var(--card2); border: 1px solid var(--border);
+    color: var(--text); font-size: 14px; font-weight: 600; cursor: pointer;
+    transition: all .15s;
+  }
+  .btn-voucher:hover { border-color: var(--accent); color: var(--accent); }
+
+  .voucher-error {
+    font-size: 12px; color: var(--red); margin-top: 8px; display: none; text-align: center;
+  }
+  .voucher-error.show { display: block; }
+
+  /* ── Footer ── */
+  .portal-footer {
+    padding: 14px 20px; border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer-brand { font-size: 11px; color: var(--text2); }
+  .footer-brand strong { color: var(--accent); }
+  .footer-signal { font-size: 11px; color: var(--text2); display: flex; align-items: center; gap: 4px; }
+  .signal-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+  /* ── Coin animation ── */
+  @keyframes coinDrop { 0%{transform:translateY(-20px);opacity:0} 60%{transform:translateY(4px)} 100%{transform:translateY(0);opacity:1} }
+  .coin-anim { animation: coinDrop .4s ease; }
+
+  /* ── Responsive ── */
+  @media (max-width: 420px) {
+    .portal-card { border-radius: 12px; }
+    .portal-name { font-size: 18px; }
+    .session-timer { font-size: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="portal-card">
+
+  <!-- Header -->
+  <div class="portal-header">
+    <!-- Default logo (replaced by custom banner if set) -->
+    <div class="portal-logo" id="defaultLogo">📡</div>
+    <!-- <img class="portal-banner-img" src="/assets/banner/custom.png" alt="Banner"> -->
+    <div class="portal-name">PotsWorks PisoWifi</div>
+    <div class="portal-tagline">Mag-bayad. Mag-connect. Mag-enjoy.</div>
+  </div>
+
+  <!-- Body -->
+  <div class="portal-body">
+
+    <!-- Price -->
+    <div class="price-badge">
+      <div>
+        <div class="price-label">Presyo</div>
+        <div class="price-value">₱1 <span class="price-unit">= 5 minuto</span></div>
+      </div>
+      <div style="text-align:right">
+        <div class="price-label">WiFi</div>
+        <div style="font-size:13px;font-weight:600;color:var(--green)">● Available</div>
+      </div>
+    </div>
+
+    <!-- Session Timer (hidden by default, shown when active) -->
+    <div class="session-box" id="sessionBox">
+      <div class="session-label">Natitirang Oras</div>
+      <div class="session-timer" id="sessionTimer">14:32</div>
+      <div class="session-sub">Mag-insert ng barya para mag-dagdag ng oras</div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <div class="tab active" onclick="switchTab('coin',this)">🪙 Barya</div>
+      <div class="tab" onclick="switchTab('voucher',this)">🎫 Voucher</div>
+    </div>
+
+    <!-- Coin Panel -->
+    <div class="tab-panel active" id="panel-coin">
+      <div class="coin-instruction">
+        <strong>Paano mag-bayad gamit ang barya:</strong>
+        1. I-click ang button sa ibaba<br>
+        2. Mag-insert ng barya sa coin slot<br>
+        3. Hintayin ang confirmation — awtomatiko kang makakakonekta
+      </div>
+
+      <div class="coin-status waiting" id="coinWaiting">
+        ⏳ Naghihintay ng barya... Mag-insert na!
+      </div>
+      <div class="coin-status credited" id="coinCredited">
+        ✅ Natanggap! Nagdagdag ng <strong id="creditedTime">5 minuto</strong>
+      </div>
+
+      <button class="btn-coin" id="btnCoin" onclick="startWaiting()">
+        🪙 Mag-insert ng Barya
+      </button>
+
+      <!-- Hidden audio element for coin sound -->
+      <audio id="coinSound" src="/assets/sounds/coin.mp3" preload="auto"></audio>
+    </div>
+
+    <!-- Voucher Panel -->
+    <div class="tab-panel" id="panel-voucher">
+      <div class="voucher-input-wrap">
+        <input class="voucher-input" id="voucherInput" type="text"
+          placeholder="Ilagay ang voucher code" maxlength="20"
+          oninput="this.value=this.value.toUpperCase()">
+      </div>
+      <button class="btn-voucher" onclick="redeemVoucher()">
+        🎫 I-Redeem ang Voucher
+      </button>
+      <div class="voucher-error" id="voucherError">
+        ❌ Hindi valid ang voucher code. Subukan muli.
+      </div>
+    </div>
+
+  </div><!-- /portal-body -->
+
+  <!-- Footer -->
+  <div class="portal-footer">
+    <div class="footer-brand">Powered by <strong>PotsWorks</strong></div>
+    <div class="footer-signal">
+      <div class="signal-dot"></div>
+      Connected
+    </div>
+  </div>
+
+</div><!-- /portal-card -->
+
+<script>
+  // ── Tab switching ──
+  function switchTab(name, el) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('panel-' + name).classList.add('active');
+  }
+
+  // ── Coin waiting state ──
+  let polling = null;
+  function startWaiting() {
+    const btn = document.getElementById('btnCoin');
+    btn.disabled = true;
+    btn.textContent = '⏳ Naghihintay...';
+    document.getElementById('coinWaiting').classList.add('waiting');
+    document.getElementById('coinCredited').style.display = 'none';
+
+    // Register as pending client first, then start polling
+    fetch('/connect', { method: 'POST' })
+      .then(r => r.json())
+      .then(data => {
+        if (data.status === 'ok') {
+          // Already has credits
+          clearInterval(polling);
+          onCredited(data.minutes);
+        } else if (data.status === 'full') {
+          btn.disabled = false;
+          btn.textContent = '🪙 Mag-insert ng Barya';
+          document.getElementById('coinWaiting').classList.remove('waiting');
+          const errEl = document.getElementById('voucherError');
+          errEl.classList.add('show');
+          errEl.textContent = '⚠️ ' + data.message;
+        } else {
+          // Waiting — start polling
+          polling = setInterval(checkCredit, 2000);
+        }
+      })
+      .catch(() => {
+        // Fallback: start polling anyway
+        polling = setInterval(checkCredit, 2000);
+      });
+  }
+
+  function checkCredit() {
+    fetch('/api/check_credit')
+      .then(r => r.json())
+      .then(data => {
+        if (data.credited) {
+          clearInterval(polling);
+          onCredited(data.minutes_added);
+        }
+      })
+      .catch(() => {});
+  }
+
+  function onCredited(minutes) {
+    document.getElementById('coinWaiting').classList.remove('waiting');
+    document.getElementById('coinCredited').style.display = 'block';
+    document.getElementById('creditedTime').textContent = minutes + ' minuto';
+    document.getElementById('coinCredited').classList.add('coin-anim');
+
+    // Play coin sound via HTML5 Audio (only if enabled)
+    const snd = document.getElementById('coinSound');
+    if (snd && snd.src) { snd.currentTime = 0; snd.play().catch(() => {}); }
+
+    const btn = document.getElementById('btnCoin');
+    btn.disabled = false;
+    btn.textContent = '🪙 Mag-insert ng Barya';
+
+    // Show session timer
+    document.getElementById('sessionBox').classList.add('show');
+    startSessionTimer(minutes * 60);
+  }
+
+  // ── Session countdown ──
+  let sessionSec = 0, sessionInterval = null;
+  function startSessionTimer(seconds) {
+    sessionSec = seconds;
+    if (sessionInterval) clearInterval(sessionInterval);
+    sessionInterval = setInterval(() => {
+      if (sessionSec <= 0) { clearInterval(sessionInterval); return; }
+      sessionSec--;
+      const m = String(Math.floor(sessionSec / 60)).padStart(2, '0');
+      const s = String(sessionSec % 60).padStart(2, '0');
+      document.getElementById('sessionTimer').textContent = m + ':' + s;
+      // Color warning when < 2 min
+      document.getElementById('sessionTimer').style.color =
+        sessionSec < 120 ? 'var(--yellow)' : 'var(--green)';
+    }, 1000);
+  }
+
+  // ── Voucher redeem ──
+  function redeemVoucher() {
+    const code = document.getElementById('voucherInput').value.trim();
+    const errEl = document.getElementById('voucherError');
+    if (!code) { errEl.classList.add('show'); errEl.textContent = '⚠️ Ilagay muna ang voucher code.'; return; }
+    errEl.classList.remove('show');
+
+    fetch('/api/redeem_voucher', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code: code })
+    })
+    .then(r => r.json())
+    .then(data => {
+      if (data.status === 'ok') {
+        onCredited(data.minutes);
+        document.getElementById('voucherInput').value = '';
+      } else {
+        errEl.classList.add('show');
+        errEl.textContent = '❌ ' + (data.error || data.message || 'Hindi valid ang voucher code.');
+      }
+    })
+    .catch(() => {
+      errEl.classList.add('show');
+      errEl.textContent = '❌ Hindi valid ang voucher code. Subukan muli.';
+    });
+  }
+
+  // ── On load: check session, load rate, load banner ──
+  window.addEventListener('load', () => {
+    // Check existing session
+    fetch('/api/session_status')
+      .then(r => r.json())
+      .then(data => {
+        if (data.active && data.remaining_seconds > 0) {
+          document.getElementById('sessionBox').classList.add('show');
+          startSessionTimer(data.remaining_seconds);
+        }
+      })
+      .catch(() => {});
+
+    // Load current rate from config
+    fetch('/api/config/rate')
+      .then(r => r.json())
+      .then(data => {
+        const priceEl = document.querySelector('.price-value');
+        if (priceEl && data.rate) {
+          priceEl.innerHTML = '&#8369;1 <span class="price-unit">= ' + data.rate + ' minuto</span>';
+        }
+      })
+      .catch(() => {});
+
+    // Load custom banner if set
+    fetch('/api/config/banner')
+      .then(r => r.json())
+      .then(data => {
+        if (data.has_banner && data.banner_url) {
+          const logo = document.getElementById('defaultLogo');
+          if (logo) {
+            const img = document.createElement('img');
+            img.className = 'portal-banner-img';
+            img.src = data.banner_url;
+            img.alt = 'Banner';
+            logo.parentNode.replaceChild(img, logo);
+          }
+        }
+      })
+      .catch(() => {});
+
+    // Load coin sound setting
+    fetch('/api/config/rate')
+      .then(r => r.json())
+      .catch(() => {});
+  });
+</script>
+</body>
+</html>

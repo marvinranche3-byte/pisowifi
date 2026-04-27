@@ -1,0 +1,18 @@
+[Unit]
+Description=PotsWorks PisoWifi Coin Slot Daemon
+After=pisowifi-backend.service
+Requires=pisowifi-backend.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/pisowifi/scripts
+ExecStart=/usr/bin/python3 /opt/pisowifi/scripts/coin_daemon.py
+Restart=always
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

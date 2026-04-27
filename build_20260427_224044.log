@@ -1,0 +1,75 @@
+[build] 22:40:44 === PotsWorks PisoWifi Image Builder ===
+[build] 22:40:44 Board: orangepi1
+[build] 22:40:44 Log: /home/kimvin101122/potsworks-pisowifi/build_20260427_224044.log
+[build] 22:40:44 Cloning Armbian build framework...
+[build] 22:41:36 Copying userpatches...
+[build] 22:41:36 Building image for orangepi1...
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'BUILD_MINIMAL': '(unset)' --> 'yes' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'COMPRESS_OUTPUTIMAGE': '(unset)' --> 'sha,img' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'BUILD_DESKTOP': '(unset)' --> 'no' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'USERPATCHES_PATH': '(unset)' --> '/home/kimvin101122/potsworks-pisowifi/armbian-build/userpatches' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'BRANCH': '(unset)' --> 'current' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'BOARD': '(unset)' --> 'orangepi1' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'RELEASE': '(unset)' --> 'bookworm' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'KERNEL_CONFIGURE': '(unset)' --> 'no' early [0m][0m
+/home/kimvin101122/potsworks-pisowifi/armbian-build/lib/functions/host/docker.sh: line 57: docker: command not found
+[0m[1;30m[💲|[0m🚸[0m] [0mThis script requires root privileges; Docker is unavailable [[1;35m trying to use sudo [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'PREFER_DOCKER': '(unset)' --> 'no' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'BUILD_MINIMAL': '(unset)' --> 'yes' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'COMPRESS_OUTPUTIMAGE': '(unset)' --> 'sha,img' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'BUILD_DESKTOP': '(unset)' --> 'no' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'USERPATCHES_PATH': '(unset)' --> '/home/kimvin101122/potsworks-pisowifi/armbian-build/userpatches' early [0m][0m
+[0m[1;30m[💲|[0m🌱[0m] [0mSkip     cmdline param [[1;32m 'ARMBIAN_RELAUNCHED': already set to 'yes' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'BRANCH': '(unset)' --> 'current' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'BOARD': '(unset)' --> 'orangepi1' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'SET_OWNER_TO_UID': '(unset)' --> '1000' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'RELEASE': '(unset)' --> 'bookworm' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'KERNEL_CONFIGURE': '(unset)' --> 'no' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mUpdating and installing basic packages on host  [[1;39m dialog linux-base  [0m][0m
+[0m[1;30m[💲|[0m🌱[0m] [0mStarting single build process [[1;32m orangepi1 [0m][0m
+[0m[1;30m[💲|[0m🌱[0m] [0mChecking [[1;32m basic host setup [0m][0m
+[0m[1;30m[💲|[0m🌱[0m] [0mBuild host OS release [[1;32m noble [0m][0m
+[0m[1;30m[💲|[0m🌱[0m] [0mBuild host architecture [[1;32m amd64 [0m][0m
+[0m[1;30m[💲|[0m🌱[0m] [0mDetected WSL2 - experimental support [[1;32m Windows Subsystem for Linux 2 [0m][0m
+[0m[1;30m[💲|[0m🚸[0m] [0mPlease use a terminal that supports UTF-8. For example: [[1;35m Windows Terminal [0m][0m
+[0m[1;30m[💲|[0m🚸[0m] [0mGet it at the Microsoft Store [[1;35m https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701 [0m][0m
+[0m[1;30m[💲|[0m💥[0m] [0mProblem detected [[1;31m WSL2 Terminal does not support UTF-8 [0m][0m
+[0m[1;30m[💲|[0m💥[0m] [0mExiting in 10 seconds [[1;31m Press <Ctrl-C> to abort, <Enter> to ignore and continue [0m][0m
+Counting down: 9... 8... 7... 6... 5... 4... 3... 2... 1... 0... 
+[0m[1;30m[💲|[0m💥[0m] [0merror! [[1;31m Exiting due to 'WSL2 Terminal does not support UTF-8'  [0m][0m
+[0m[1;30m[💲|[0m💥[0m] [0m    👇👇👇 Showing logfile below 👇👇👇 [[1;31m /home/kimvin101122/potsworks-pisowifi/armbian-build/.tmp/logs-24a140ef-ee74-4928-b84f-55f0cdf9af3c/003.000.config_early_init.log [0m][0m
+[0me[1;30m[💲|[0m👉]    --> (20) [1;32mINFO[0m: Starting single build process [ [1;32morangepi1[0m ]
+[0me[1;30m[💲|[0m👉]    --> (20) [1;32mINFO[0m: Checking [ [1;32mbasic host setup[0m ]
+[0me[1;30m[💲|[0m👉]    --> (20) [1;32mINFO[0m: Build host OS release [ [1;32mnoble[0m ]
+[0me[1;30m[💲|[0m👉]    --> (20) [1;32mINFO[0m: Build host architecture [ [1;32mamd64[0m ]
+[0me[1;30m[💲|[0m👉]    --> (20) [1;32mINFO[0m: Detected WSL2 - experimental support [ [1;32mWindows Subsystem for Linux 2[0m ]
+[0me[1;30m[💲|[0m👉]    --> (20) [1;35mWARNING[0m: Please use a terminal that supports UTF-8. For example: [ [1;35mWindows Terminal[0m ]
+[0me[1;30m[💲|[0m👉]    --> (20) [1;35mWARNING[0m: Get it at the Microsoft Store [ [1;35mhttps://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701[0m ]
+[0me[1;30m[💲|[0m👉]    --> (20) [1;31mERROR[0m: Problem detected [ [1;31mWSL2 Terminal does not support UTF-8[0m ]
+[0me[1;30m[💲|[0m👉]    --> (20) [1;31mERROR[0m: Exiting in 10 seconds [ [1;31mPress <Ctrl-C> to abort, <Enter> to ignore and continue[0m ]
+[0me[1;30m[💲|[0m👉]    --> (30) [1;31mERROR[0m: error! [ [1;31mExiting due to 'WSL2 Terminal does not support UTF-8' [0m ]
+[0m[1;30m[💲|[0m💥[0m] [0m    👆👆👆 Showing logfile above 👆👆👆 [[1;31m /home/kimvin101122/potsworks-pisowifi/armbian-build/.tmp/logs-24a140ef-ee74-4928-b84f-55f0cdf9af3c/003.000.config_early_init.log [0m][0m
+[0m[1;30m[💲|[0m💥[0m] [0mExiting with error 43 [[1;31m at /home/kimvin101122/potsworks-pisowifi/armbian-build/lib/functions/logging/traps.sh:1
+[0;31m                exit_with_error() --> lib/functions/logging/traps.sh:1
+[0;31m   exit_if_countdown_not_aborted() --> lib/functions/general/countdown.sh:41
+[0;31m   wsl2_pester_user_for_terminal() --> lib/functions/host/wsl2.sh:36
+[0;31m             check_windows_wsl2() --> lib/functions/host/wsl2.sh:19
+[0;31m               check_basic_host() --> lib/functions/host/prepare-host.sh:35
+[0;31m    prep_conf_main_build_single() --> lib/functions/main/config-prepare.sh:16
+[0;31m         cli_standard_build_run() --> lib/functions/cli/cli-build.sh:22
+[0;31m        armbian_cli_run_command() --> lib/functions/cli/utils-cli.sh:136
+[0;31m                 cli_entrypoint() --> lib/functions/cli/entrypoint.sh:208
+[0;31m                           main() --> compile.sh:50
+ [0m][0m
+[0m[1;30m[💲|[0m💥[0m] [0mCleaning up [[1;31m please wait for cleanups to finish [0m][0m
+[0m[1;30m[💲|[0m✨[0m] [0mRepeat Build Options [[1;32m ./compile.sh build BOARD=orangepi1 BRANCH=current BUILD_DESKTOP=no BUILD_MINIMAL=yes COMPRESS_OUTPUTIMAGE=sha,img KERNEL_CONFIGURE=no RELEASE=bookworm USERPATCHES_PATH=/home/kimvin101122/potsworks-pisowifi/armbian-build/userpatches [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mANSI log file built; inspect it by running: [[1;39m less -RS output/logs/log-build-24a140ef-ee74-4928-b84f-55f0cdf9af3c.log.ans [0m][0m
+[0m[1;30m[💲|[0m🌱[0m] [0mShare log manually: [[1;32m use one of the commands below (or add SHARE_LOG=yes next time!) [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mShare log manually: [[1;39m curl --data-binary @output/logs/log-build-24a140ef-ee74-4928-b84f-55f0cdf9af3c.log.ans https://paste.armbian.com/log [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mShare log manually: [[1;39m curl --data-binary @output/logs/log-build-24a140ef-ee74-4928-b84f-55f0cdf9af3c.log.ans https://paste.armbian.de/log [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mShare log manually: [[1;39m curl --data-binary @output/logs/log-build-24a140ef-ee74-4928-b84f-55f0cdf9af3c.log.ans https://paste.next.armbian.com/log [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mShare log manually: [[1;39m curl --data-binary @output/logs/log-build-24a140ef-ee74-4928-b84f-55f0cdf9af3c.log.ans https://paste.armbian.eu/log [0m][0m
+[build] 22:42:08 Build complete for orangepi1
+[build] 22:42:08 Output: /home/kimvin101122/potsworks-pisowifi/armbian-build/output/images/
+[build] 22:42:08 === All builds complete ===
+[build] 22:42:08 Images are in: /home/kimvin101122/potsworks-pisowifi/armbian-build/output/images/

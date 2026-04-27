@@ -1,0 +1,1 @@
+Write-Host "build script v2"

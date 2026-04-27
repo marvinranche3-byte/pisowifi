@@ -1,0 +1,18 @@
+[Unit]
+Description=PotsWorks PisoWifi Flask Backend
+After=network.target hostapd.service dnsmasq.service
+Wants=hostapd.service dnsmasq.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/pisowifi/backend
+ExecStart=/usr/bin/python3 /opt/pisowifi/backend/app.py
+Restart=always
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

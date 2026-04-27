@@ -1,0 +1,26 @@
+﻿import os
+TARGET = r'overlay\opt\pisowifi\backend\app.py'
+with open(TARGET, 'w', encoding='utf-8') as f:
+    w = f.write
+    def L(s): f.write(s + chr(10))
+    L('#!/usr/bin/env python3')
+    L("""""")
+    L('PotsWorks PisoWiFi - Main Backend (Flask)')
+    L('Handles: captive portal, session management, vouchers, admin panel.')
+    L("""""")
+    L('')
+    L('from flask import Flask, request, redirect, jsonify, send_file, session as flask_session')
+    L('import os, sys, subprocess, hashlib, secrets, time, json, shutil, logging')
+    L('from datetime import datetime, date')
+    L('')
+    L('sys.path.insert(0, os.path.dirname(__file__))')
+    L('from db import get_db, init_db, get_config, set_config')
+    L('')
+    L('app = Flask(__name__)')
+    L('app.secret_key = secrets.token_hex(32)')
+    L('')
+    L('logging.basicConfig(level=logging.INFO, format="%(asctime)s [BACKEND] %(message)s")')
+    L('')
+    L('# In-memory rate limiting: {ip: {count: int, locked_until: float}}')
+    L('_login_attempts = {}')
+    L('')

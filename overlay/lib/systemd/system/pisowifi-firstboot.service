@@ -1,0 +1,16 @@
+[Unit]
+Description=PotsWorks PisoWifi First Boot Initialization
+ConditionPathExists=!/opt/pisowifi/.first_boot_done
+After=network.target
+Before=pisowifi-backend.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+User=root
+ExecStart=/bin/bash /opt/pisowifi/scripts/first_boot.sh
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

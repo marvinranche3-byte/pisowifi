@@ -1,0 +1,17 @@
+[Unit]
+Description=PotsWorks PisoWifi Watchdog
+After=pisowifi-backend.service pisowifi-coin.service pisowifi-session.service
+Wants=pisowifi-backend.service pisowifi-coin.service pisowifi-session.service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/python3 /opt/pisowifi/scripts/watchdog.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

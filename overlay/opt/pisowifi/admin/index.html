@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html><html lang="fil"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title>PotsWorks PisoWifi - Admin</title>
+<style>:root{--bg:#0f1117;--s1:#1a1d27;--s2:#22263a;--bd:#2e3350;--ac:#4f8ef7;--ac2:#7c5cfc;--gr:#22c55e;--yw:#f59e0b;--rd:#ef4444;--tx:#e8eaf6;--tx2:#8b90b0;--r:12px;--rs:8px;--fn:'Segoe UI',system-ui,sans-serif}*{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--tx);font-family:var(--fn);min-height:100vh;display:flex;overflow-x:hidden}a{text-decoration:none;color:inherit}.sb{width:220px;min-height:100vh;background:var(--s1);border-right:1px solid var(--bd);display:flex;flex-direction:column;position:fixed;top:0;left:0;z-index:200;transition:transform .25s}.sb-logo{padding:18px 16px 14px;border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:10px;position:relative}.sb-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--ac),var(--ac2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}.sb-name{font-size:13px;font-weight:700;line-height:1.3}.sb-name span{color:var(--ac)}.sb-ver{font-size:10px;color:var(--tx2)}.nav{flex:1;padding:10px 0;overflow-y:auto}.nav-sec{padding:8px 16px 3px;font-size:10px;color:var(--tx2);text-transform:uppercase;letter-spacing:1px}.ni{display:flex;align-items:center;gap:10px;padding:9px 16px;color:var(--tx2);font-size:13px;cursor:pointer;border-left:3px solid transparent;transition:all .15s}.ni:hover{background:var(--s2);color:var(--tx)}.ni.on{background:rgba(79,142,247,.12);color:var(--ac);border-left-color:var(--ac)}.ni .ic{width:18px;text-align:center;font-size:15px}.nb{margin-left:auto;background:var(--rd);color:#fff;font-size:10px;padding:1px 6px;border-radius:20px;font-weight:700}.sb-foot{padding:12px 16px;border-top:1px solid var(--bd);font-size:10px;color:var(--tx2)}.sb-close{display:none;position:absolute;top:14px;right:14px;background:none;border:none;color:var(--tx2);font-size:20px;cursor:pointer;line-height:1}.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:190}.overlay.show{display:block}.main{margin-left:220px;flex:1;display:flex;flex-direction:column;min-height:100vh;min-width:0}.topbar{height:54px;background:var(--s1);border-bottom:1px solid var(--bd);display:flex;align-items:center;padding:0 20px;gap:12px;position:sticky;top:0;z-index:100}.menu-btn{display:none;background:none;border:none;color:var(--tx);font-size:22px;cursor:pointer;padding:4px;line-height:1}.tb-title{font-size:15px;font-weight:600;flex:1}.tb-time{font-size:12px;color:var(--tx2)}.tb-out{font-size:12px;color:var(--tx2);cursor:pointer;padding:5px 11px;border:1px solid var(--bd);border-radius:var(--rs);transition:all .15s}.tb-out:hover{color:var(--rd);border-color:var(--rd)}.content{padding:20px;flex:1}.page{display:none}.page.on{display:block}.act-bar{background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(245,158,11,.05));border:1px solid rgba(245,158,11,.4);border-radius:var(--r);padding:12px 18px;margin-bottom:18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}.act-bar.ok{background:linear-gradient(135deg,rgba(34,197,94,.15),rgba(34,197,94,.05));border-color:rgba(34,197,94,.4)}.act-badge{padding:3px 11px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.5px;background:var(--yw);color:#000;flex-shrink:0}.act-badge.ok{background:var(--gr);color:#fff}.act-info{flex:1;font-size:13px;min-width:160px}.act-info strong{display:block;margin-bottom:2px}.act-info span{color:var(--tx2);font-size:12px}.act-btn{padding:6px 14px;background:var(--yw);color:#000;border:none;border-radius:var(--rs);font-size:12px;font-weight:700;cursor:pointer;transition:opacity .15s;flex-shrink:0}.act-btn:hover{opacity:.85}.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}.sc{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:5px}.sl{font-size:11px;color:var(--tx2);text-transform:uppercase;letter-spacing:.5px}.sv{font-size:24px;font-weight:700;line-height:1}.ss{font-size:11px;color:var(--tx2)}.sc.gr .sv{color:var(--gr)}.sc.bl .sv{color:var(--ac)}.sc.yw .sv{color:var(--yw)}.sc.pu .sv{color:var(--ac2)}.row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}.row.w3{grid-template-columns:2fr 1fr}.col{display:flex;flex-direction:column;gap:14px}.card{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden}.ch{padding:12px 16px;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;gap:8px}.ct{font-size:13px;font-weight:600}.ca{font-size:12px;color:var(--ac);cursor:pointer;white-space:nowrap}.cb{padding:14px 16px}.tbl{width:100%;border-collapse:collapse;font-size:12px}.tbl th{color:var(--tx2);font-weight:600;text-align:left;padding:7px 10px;border-bottom:1px solid var(--bd);font-size:11px;text-transform:uppercase;letter-spacing:.4px}.tbl td{padding:9px 10px;border-bottom:1px solid rgba(46,51,80,.5);vertical-align:middle}.tbl tr:last-child td{border-bottom:none}.tbl tr:hover td{background:rgba(255,255,255,.02)}.tbl-wrap{overflow-x:auto}.pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:600}.pill.gr{background:rgba(34,197,94,.15);color:var(--gr)}.pill.rd{background:rgba(239,68,68,.15);color:var(--rd)}.pill.yw{background:rgba(245,158,11,.15);color:var(--yw)}.pill.bl{background:rgba(79,142,247,.15);color:var(--ac)}.btn{padding:9px 18px;border-radius:var(--rs);border:none;font-size:13px;font-weight:600;cursor:pointer;transition:opacity .15s}.btn:hover{opacity:.85}.btn.pri{background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff}.btn.sec{background:var(--s2);color:var(--tx);border:1px solid var(--bd)}.btn.dan{background:rgba(239,68,68,.15);color:var(--rd);border:1px solid rgba(239,68,68,.3)}.btn.suc{background:rgba(34,197,94,.15);color:var(--gr);border:1px solid rgba(34,197,94,.3)}.btn-sm{padding:3px 9px;border-radius:6px;font-size:11px;cursor:pointer;border:none;font-weight:600;transition:opacity .15s}.btn-sm:hover{opacity:.8}.btn-sm.rd{background:rgba(239,68,68,.15);color:var(--rd)}.btn-sm.bl{background:rgba(79,142,247,.15);color:var(--ac)}.btn-sm.gr{background:rgba(34,197,94,.15);color:var(--gr)}.btn-sm.yw{background:rgba(245,158,11,.15);color:var(--yw)}.fg{margin-bottom:14px}.fl{display:block;font-size:12px;color:var(--tx2);margin-bottom:5px;font-weight:500}.fi,.fs,.fsel{width:100%;padding:9px 12px;background:var(--s2);border:1px solid var(--bd);border-radius:var(--rs);color:var(--tx);font-size:13px;font-family:var(--fn);outline:none;transition:border-color .15s}.fi:focus,.fs:focus,.fsel:focus{border-color:var(--ac)}.fi-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.fi-row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.fsel option{background:var(--s2)}.ftoggle{display:flex;align-items:center;gap:10px;font-size:13px}.toggle{position:relative;width:40px;height:22px;flex-shrink:0}.toggle input{opacity:0;width:0;height:0}.tslider{position:absolute;inset:0;background:var(--bd);border-radius:11px;cursor:pointer;transition:.2s}.tslider:before{content:'';position:absolute;width:16px;height:16px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}.toggle input:checked+.tslider{background:var(--ac)}.toggle input:checked+.tslider:before{transform:translateX(18px)}.fhint{font-size:11px;color:var(--tx2);margin-top:4px}.fdivider{border:none;border-top:1px solid var(--bd);margin:16px 0}.fsave{display:flex;gap:8px;margin-top:16px}.gw{height:80px}.gsvg{width:100%;height:100%}.glbl{font-size:10px;color:var(--tx2);margin-top:4px;display:flex;justify-content:space-between}.svc-list{display:flex;flex-direction:column;gap:9px}.svc{display:flex;align-items:center;gap:9px;font-size:12px}.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}.dot.ok{background:var(--gr);box-shadow:0 0 6px var(--gr)}.dot.wn{background:var(--yw)}.dot.er{background:var(--rd)}.svc-n{flex:1}.svc-u{color:var(--tx2);font-size:11px}.dg{display:grid;grid-template-columns:1fr 1fr;gap:9px}.di{background:var(--s2);border-radius:var(--rs);padding:9px 11px}.dl{font-size:10px;color:var(--tx2);margin-bottom:3px;text-transform:uppercase;letter-spacing:.4px}.dv{font-size:17px;font-weight:700}.db{height:4px;background:var(--bd);border-radius:2px;margin-top:5px;overflow:hidden}.dbf{height:100%;border-radius:2px;transition:width .5s}.dbf.gr{background:var(--gr)}.dbf.yw{background:var(--yw)}.dbf.rd{background:var(--rd)}.rates-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-bottom:14px}.rate-card{background:var(--s2);border:1px solid var(--bd);border-radius:var(--rs);padding:12px 14px;display:flex;flex-direction:column;gap:6px}.rate-coin{font-size:22px;font-weight:800;color:var(--ac)}.rate-time{font-size:13px;color:var(--tx2)}.rate-actions{display:flex;gap:6px;margin-top:4px}.vtag{display:inline-block;font-family:monospace;font-size:13px;letter-spacing:2px;background:var(--s2);border:1px solid var(--bd);border-radius:6px;padding:4px 10px;color:var(--tx)}.vrow{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(46,51,80,.4)}.vrow:last-child{border-bottom:none}.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:500;align-items:center;justify-content:center;padding:16px}.modal-bg.show{display:flex}.modal{background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);width:100%;max-width:420px;overflow:hidden}.mh{padding:14px 18px;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between}.mt{font-size:14px;font-weight:600}.mc{padding:18px}.mf{padding:14px 18px;border-top:1px solid var(--bd);display:flex;gap:8px;justify-content:flex-end}.mclose{background:none;border:none;color:var(--tx2);font-size:20px;cursor:pointer;line-height:1}.toast{position:fixed;bottom:20px;right:20px;background:var(--s1);border:1px solid var(--bd);border-radius:var(--rs);padding:10px 16px;font-size:13px;z-index:999;transform:translateY(80px);opacity:0;transition:all .3s;max-width:280px;pointer-events:none}.toast.show{transform:translateY(0);opacity:1}.toast.ok{border-color:rgba(34,197,94,.5);color:var(--gr)}.toast.er{border-color:rgba(239,68,68,.5);color:var(--rd)}@media(max-width:900px){.sg{grid-template-columns:repeat(2,1fr)}.row,.row.w3{grid-template-columns:1fr}.fi-row3{grid-template-columns:1fr 1fr}}@media(max-width:640px){.sb{transform:translateX(-100%)}.sb.open{transform:translateX(0)}.sb-close{display:block}.main{margin-left:0}.menu-btn{display:block}.sg{grid-template-columns:1fr 1fr}.fi-row,.fi-row3{grid-template-columns:1fr}.content{padding:14px}.act-bar{flex-direction:column;align-items:flex-start}}</style></head><body><div class="overlay" id="ov" onclick="closeSb()"></div><aside class="sb" id="sb"><div class="sb-logo"><div class="sb-icon">&#128225;</div><div><div class="sb-name"><span>PotsWorks</span> PisoWifi</div><div class="sb-ver">Admin v1.0</div></div><button class="sb-close" onclick="closeSb()">&#x2715;</button></div><nav class="nav"><div class="nav-sec">Main</div><div class="ni on" onclick="nav('dashboard',this)"><span class="ic">&#8862;</span> Dashboard</div><div class="ni" onclick="nav('users',this)"><span class="ic">&#128101;</span> Mga User <span class="nb" id="uBadge">3</span></div><div class="ni" onclick="nav('vouchers',this)"><span class="ic">&#127915;</span> Vouchers</div><div class="ni" onclick="nav('sales',this)"><span class="ic">&#128202;</span> Sales Report</div><div class="nav-sec">Network</div><div class="ni" onclick="nav('wifi',this)"><span class="ic">&#128246;</span> WiFi Settings</div><div class="ni" onclick="nav('rates',this)"><span class="ic">&#128176;</span> WiFi Rates</div><div class="ni" onclick="nav('bandwidth',this)"><span class="ic">&#9889;</span> Bandwidth</div><div class="ni" onclick="nav('qos',this)"><span class="ic">&#127918;</span> Gaming QoS</div><div class="ni" onclick="nav('starlink',this)"><span class="ic">&#128752;</span> Starlink</div><div class="nav-sec">System</div><div class="ni" onclick="nav('portal',this)"><span class="ic">&#127912;</span> Portal Design</div><div class="ni" onclick="nav('activation',this)"><span class="ic">&#128273;</span> Activation</div><div class="ni" onclick="nav('settings',this)"><span class="ic">&#9881;</span> Settings</div><div class="ni" onclick="nav('logs',this)"><span class="ic">&#128203;</span> Logs</div></nav><div class="sb-foot">PotsWorks PisoWifi v1.0.0<br>Orange Pi Zero 3</div></aside><div class="main"><div class="topbar"><button class="menu-btn" onclick="openSb()">&#9776;</button><div class="tb-title" id="pageTitle">Dashboard</div><div class="tb-time" id="clock">--:--:--</div><div class="tb-out" onclick="logout()">&#9211; Logout</div></div><div class="content"><div class="page on" id="pg-dashboard"><div class="act-bar" id="actBar"><div class="act-badge" id="actBadge">TRIAL MODE</div><div class="act-info"><strong id="actTitle">Hindi pa activated ang sistema</strong><span id="actSub">2 users lang ang pwedeng kumonekta. I-activate para ma-unlock ang lahat ng features.</span></div><button class="act-btn" id="actBtn" onclick="nav('activation',document.querySelector('.ni[onclick*=activation]'))">I-Activate Ngayon</button></div><div class="sg"><div class="sc gr"><div class="sl">Active Users</div><div class="sv" id="statUsers">1 <span style="font-size:14px;color:var(--tx2)">/ 2</span></div><div class="ss">Trial limit: 2 users</div></div><div class="sc bl"><div class="sl">Kita Ngayon</div><div class="sv">&#8369;47</div><div class="ss">+&#8369;12 vs kahapon</div></div><div class="sc yw"><div class="sl">Coins Today</div><div class="sv">23</div><div class="ss">insertions</div></div><div class="sc pu"><div class="sl">Uptime</div><div class="sv" style="font-size:18px">3d 4h</div><div class="ss">since last reboot</div></div></div><div class="row w3"><div class="card"><div class="ch"><div class="ct">&#128101; Aktibong Users</div><div class="ca" onclick="loadUsers()">Refresh</div></div><div class="tbl-wrap"><table class="tbl"><thead><tr><th>MAC Address</th><th>IP</th><th>Natitirang Oras</th><th>Speed</th><th>Status</th><th>Aksyon</th></tr></thead><tbody id="usersTbody"><tr><td><code>AA:BB:CC:11:22:33</code></td><td>10.0.0.101</td><td><span style="color:var(--gr);font-weight:700">14:32</span></td><td>3 Mbps</td><td><span class="pill gr">Online</span></td><td><button class="btn-sm bl" onclick="addTime(this)">+Oras</button> <button class="btn-sm rd" onclick="kickUser(this)">Kick</button></td></tr><tr><td><code>DD:EE:FF:44:55:66</code></td><td>10.0.0.102</td><td><span style="color:var(--yw);font-weight:700">02:11</span></td><td>1 Mbps</td><td><span class="pill gr">Online</span></td><td><button class="btn-sm bl" onclick="addTime(this)">+Oras</button> <button class="btn-sm rd" onclick="kickUser(this)">Kick</button></td></tr></tbody></table></div></div><div class="col"><div class="card"><div class="ch"><div class="ct">&#9881; Services</div></div><div class="cb"><div class="svc-list"><div class="svc"><div class="dot ok"></div><div class="svc-n">Flask Backend</div><div class="svc-u">3d 4h</div></div><div class="svc"><div class="dot ok"></div><div class="svc-n">Coin Daemon</div><div class="svc-u">3d 4h</div></div><div class="svc"><div class="dot ok"></div><div class="svc-n">Session Manager</div><div class="svc-u">3d 4h</div></div><div class="svc"><div class="dot ok"></div><div class="svc-n">hostapd</div><div class="svc-u">3d 4h</div></div><div class="svc"><div class="dot ok"></div><div class="svc-n">dnsmasq</div><div class="svc-u">3d 4h</div></div><div class="svc"><div class="dot wn"></div><div class="svc-n">Starlink Monitor</div><div class="svc-u">Disabled</div></div></div></div></div><div class="card"><div class="ch"><div class="ct">&#128187; Hardware</div></div><div class="cb"><div class="dg"><div class="di"><div class="dl">CPU Temp</div><div class="dv" style="color:var(--gr)">52&#176;C</div><div class="db"><div class="dbf gr" style="width:52%"></div></div></div><div class="di"><div class="dl">RAM</div><div class="dv" style="color:var(--yw)">68%</div><div class="db"><div class="dbf yw" style="width:68%"></div></div></div><div class="di"><div class="dl">Disk</div><div class="dv" style="color:var(--gr)">23%</div><div class="db"><div class="dbf gr" style="width:23%"></div></div></div><div class="di"><div class="dl">WAN</div><div class="dv" style="color:var(--gr);font-size:13px">Online</div><div class="db"><div class="dbf gr" style="width:100%"></div></div></div></div></div></div></div></div><div class="row"><div class="card"><div class="ch"><div class="ct">&#128200; WAN Throughput (1 oras)</div><div class="ca" style="color:var(--tx2);font-size:11px">Avg: 4.2 Mbps</div></div><div class="cb"><div class="gw"><svg class="gsvg" viewBox="0 0 400 80" preserveAspectRatio="none"><defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4f8ef7" stop-opacity=".4"/><stop offset="100%" stop-color="#4f8ef7" stop-opacity="0"/></linearGradient></defs><path d="M0,60 L40,50 L80,48 L120,35 L160,30 L200,28 L240,22 L280,25 L320,28 L360,32 L400,30 L400,80 L0,80 Z" fill="url(#g1)"/><path d="M0,60 L40,50 L80,48 L120,35 L160,30 L200,28 L240,22 L280,25 L320,28 L360,32 L400,30" fill="none" stroke="#4f8ef7" stroke-width="2"/></svg></div><div class="glbl"><span>1h ago</span><span>45min</span><span>30min</span><span>15min</span><span>Now</span></div></div></div><div class="card"><div class="ch"><div class="ct">&#129689; Recent Coins</div><div class="ca">View All</div></div><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Oras</th><th>MAC</th><th>Halaga</th><th>Nadagdag</th></tr></thead><tbody><tr><td>14:32</td><td>AA:BB:...:33</td><td>&#8369;5</td><td>+25 min</td></tr><tr><td>14:28</td><td>DD:EE:...:66</td><td>&#8369;1</td><td>+5 min</td></tr><tr><td>14:15</td><td>AA:BB:...:33</td><td>&#8369;5</td><td>+25 min</td></tr><tr><td>13:58</td><td>GG:HH:...:99</td><td>&#8369;5</td><td>+25 min</td></tr></tbody></table></div></div></div></div><div class="page" id="pg-rates"><div class="card" style="margin-bottom:16px"><div class="ch"><div class="ct">&#128176; WiFi Rates â€” Presyo ng Internet</div><button class="btn pri" onclick="showAddRate()" style="padding:6px 14px;font-size:12px">+ Dagdag Rate</button></div><div class="cb"><p style="font-size:12px;color:var(--tx2);margin-bottom:14px">I-configure ang presyo ng internet access. Maaaring mag-set ng iba-ibang rate para sa iba-ibang halaga ng barya.</p><div class="rates-grid" id="ratesGrid"><div class="rate-card"><div class="rate-coin">&#8369;1</div><div class="rate-time">= 5 minuto</div><div style="font-size:11px;color:var(--tx2)">Default rate</div><div class="rate-actions"><button class="btn-sm bl" onclick="editRate(this,1,5)">Edit</button><button class="btn-sm rd" onclick="deleteRate(this)">Delete</button></div></div><div class="rate-card"><div class="rate-coin">&#8369;5</div><div class="rate-time">= 30 minuto</div><div style="font-size:11px;color:var(--tx2)">Standard rate</div><div class="rate-actions"><button class="btn-sm bl" onclick="editRate(this,5,30)">Edit</button><button class="btn-sm rd" onclick="deleteRate(this)">Delete</button></div></div><div class="rate-card"><div class="rate-coin">&#8369;10</div><div class="rate-time">= 1 oras</div><div style="font-size:11px;color:var(--tx2)">Value rate</div><div class="rate-actions"><button class="btn-sm bl" onclick="editRate(this,10,60)">Edit</button><button class="btn-sm rd" onclick="deleteRate(this)">Delete</button></div></div><div class="rate-card"><div class="rate-coin">&#8369;20</div><div class="rate-time">= 2 oras 30 min</div><div style="font-size:11px;color:var(--tx2)">Premium rate</div><div class="rate-actions"><button class="btn-sm bl" onclick="editRate(this,20,150)">Edit</button><button class="btn-sm rd" onclick="deleteRate(this)">Delete</button></div></div></div></div></div><div class="card"><div class="ch"><div class="ct">&#9881; Rate Settings</div></div><div class="cb"><div class="fi-row"><div class="fg"><label class="fl">Default Rate (minuto per piso)</label><input class="fi" type="number" id="defaultRate" value="5" min="1" max="60"><div class="fhint">Gamitin kung walang specific na rate para sa coin denomination</div></div><div class="fg"><label class="fl">Minimum na Bayad (piso)</label><input class="fi" type="number" id="minPayment" value="1" min="1"><div class="fhint">Pinakamababang halaga ng barya na tatanggapin</div></div></div><div class="fg"><label class="fl">Coin Pulse Timeout (milliseconds)</label><input class="fi" type="number" id="pulseTimeout" value="800" min="200" max="2000"><div class="fhint">Oras na hihintayin pagkatapos ng huling pulse bago i-credit ang barya</div></div><div class="fsave"><button class="btn pri" onclick="saveRates()">I-Save ang Rates</button><button class="btn sec" onclick="resetRates()">I-Reset sa Default</button></div></div></div></div><div class="page" id="pg-vouchers"><div class="row"><div class="card"><div class="ch"><div class="ct">&#127915; Generate Vouchers</div></div><div class="cb"><div class="fi-row3"><div class="fg"><label class="fl">Duration</label><select class="fsel" id="vDuration"><option value="15">15 minuto</option><option value="30">30 minuto</option><option value="60" selected>1 oras</option><option value="120">2 oras</option><option value="300">5 oras</option><option value="1440">1 araw</option></select></div><div class="fg"><label class="fl">Dami ng Vouchers</label><input class="fi" type="number" id="vCount" value="10" min="1" max="100"></div><div class="fg"><label class="fl">Prefix (optional)</label><input class="fi" type="text" id="vPrefix" placeholder="e.g. VIP" maxlength="4"></div></div><div class="fg"><label class="fl">Bandwidth Tier (optional)</label><select class="fsel" id="vBandwidth"><option value="">Default (global limit)</option><option value="1">Basic â€” 1 Mbps</option><option value="3">Standard â€” 3 Mbps</option><option value="5">Premium â€” 5 Mbps</option></select></div><div class="fsave"><button class="btn pri" onclick="generateVouchers()">&#127915; Generate Vouchers</button></div></div></div><div class="card"><div class="ch"><div class="ct">&#128203; Generated Vouchers</div><div style="display:flex;gap:8px"><button class="btn-sm gr" onclick="copyAll()">Copy All</button><button class="btn-sm bl" onclick="exportTxt()">Export .txt</button><button class="btn-sm rd" onclick="clearGenerated()">Clear</button></div></div><div class="cb" id="voucherOutput" style="min-height:120px"><p style="color:var(--tx2);font-size:13px;text-align:center;padding:20px 0">I-click ang Generate para lumikha ng mga voucher codes.</p></div></div></div><div class="card"><div class="ch"><div class="ct">&#128203; Lahat ng Vouchers</div><div style="display:flex;gap:8px"><input class="fi" type="text" placeholder="Hanapin..." id="vSearch" oninput="filterVouchers()" style="width:160px;padding:5px 10px;font-size:12px"><select class="fsel" id="vFilter" onchange="filterVouchers()" style="width:120px;padding:5px 10px;font-size:12px"><option value="">Lahat</option><option value="unused">Hindi pa ginamit</option><option value="used">Nagamit na</option></select></div></div><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Code</th><th>Duration</th><th>Status</th><th>Ginamit ng</th><th>Petsa</th><th>Aksyon</th></tr></thead><tbody id="voucherTbody"><tr><td><span class="vtag">ABCD-1234-EFGH</span></td><td>1 oras</td><td><span class="pill gr">Unused</span></td><td>â€”</td><td>Apr 25, 2026</td><td><button class="btn-sm rd" onclick="deleteVoucher(this)">Delete</button></td></tr><tr><td><span class="vtag">WXYZ-5678-MNOP</span></td><td>30 min</td><td><span class="pill yw">Used</span></td><td>AA:BB:CC:11</td><td>Apr 24, 2026</td><td><button class="btn-sm rd" onclick="deleteVoucher(this)">Delete</button></td></tr></tbody></table></div></div></div><div class="page" id="pg-settings"><div class="card" style="margin-bottom:16px"><div class="ch"><div class="ct">&#128246; WiFi Settings</div></div><div class="cb"><div class="fi-row"><div class="fg"><label class="fl">SSID (WiFi Name)</label><input class="fi" type="text" id="ssid" value="PotsWorks PisoWifi"></div><div class="fg"><label class="fl">WiFi Password</label><input class="fi" type="password" id="wifiPass" value="potsworks123"></div></div><div class="fi-row"><div class="fg"><label class="fl">Channel (1-11)</label><input class="fi" type="number" id="wifiCh" value="6" min="1" max="11"></div><div class="fg"><label class="fl">Band</label><select class="fsel" id="wifiBand"><option value="2.4">2.4 GHz</option><option value="5">5 GHz (Zero 3 only)</option></select></div></div><div class="fsave"><button class="btn pri" onclick="saveWifi()">I-Save WiFi Settings</button></div></div></div><div class="card" style="margin-bottom:16px"><div class="ch"><div class="ct">&#128274; Baguhin ang Admin Password</div></div><div class="cb"><div class="fg"><label class="fl">Kasalukuyang Password</label><input class="fi" type="password" id="curPass" placeholder="Ilagay ang kasalukuyang password"></div><div class="fi-row"><div class="fg"><label class="fl">Bagong Password</label><input class="fi" type="password" id="newPass" placeholder="Minimum 8 characters"></div><div class="fg"><label class="fl">Kumpirmahin ang Bagong Password</label><input class="fi" type="password" id="confPass" placeholder="Ulitin ang bagong password"></div></div><div id="passMsg" style="font-size:12px;margin-bottom:10px;display:none"></div><div class="fsave"><button class="btn pri" onclick="changePassword()">I-Update ang Password</button></div></div></div><div class="card" style="margin-bottom:16px"><div class="ch"><div class="ct">&#128273; License Key Activation</div></div><div class="cb"><div id="actStatus" style="background:var(--s2);border-radius:var(--rs);padding:12px 14px;margin-bottom:14px;display:flex;align-items:center;gap:10px"><div class="dot wn"></div><div style="flex:1"><div style="font-size:13px;font-weight:600">TRIAL MODE</div><div style="font-size:12px;color:var(--tx2)">2 users lang ang pwedeng kumonekta. I-activate para ma-unlock ang lahat ng features.</div></div></div><div class="fg"><label class="fl">License Key</label><input class="fi" type="text" id="licKey" placeholder="XXXXX-XXXXX-XXXXX-XXXXX" style="font-family:monospace;letter-spacing:2px;text-transform:uppercase"></div><div class="fhint" style="margin-bottom:12px">Ang license key ay naka-tie sa hardware ID ng device na ito. Hindi ito gagana sa ibang device.</div><div class="fsave"><button class="btn pri" onclick="activateLicense()">I-Validate at I-Activate</button></div></div></div><div class="card"><div class="ch"><div class="ct">&#9881; System Settings</div></div><div class="cb"><div class="fg"><label class="fl">Coin Sound</label><div class="ftoggle"><label class="toggle"><input type="checkbox" id="coinSound" checked><span class="tslider"></span></label><span>I-play ang tunog kapag may barya na na-insert</span></div></div><hr class="fdivider"><div class="fg"><label class="fl">Custom Banner</label><input class="fi" type="file" id="bannerFile" accept=".jpg,.png" style="padding:6px"><div class="fhint">JPG o PNG lamang, maximum 500KB. Ipapakita sa Captive Portal.</div></div><div class="fg"><label class="fl">Custom Coin Sound</label><input class="fi" type="file" id="soundFile" accept=".mp3,.wav" style="padding:6px"><div class="fhint">MP3 o WAV lamang, maximum 100KB.</div></div><hr class="fdivider"><div class="fg"><label class="fl">Backup at Restore</label><div style="display:flex;gap:8px;margin-top:6px"><button class="btn sec" onclick="backupDB()">&#128190; I-Backup ang Database</button><button class="btn sec" onclick="restoreDB()">&#128196; I-Restore</button></div></div><div class="fsave" style="margin-top:16px"><button class="btn pri" onclick="saveSettings()">I-Save ang Settings</button></div></div></div></div><div class="page" id="pg-activation"><div class="card" style="max-width:500px;margin:0 auto"><div class="ch"><div class="ct">&#128273; I-Activate ang Sistema</div></div><div class="cb"><div style="text-align:center;padding:10px 0 20px"><div style="font-size:48px;margin-bottom:10px">&#128225;</div><div style="font-size:16px;font-weight:700;margin-bottom:6px">PotsWorks PisoWifi</div><div style="font-size:12px;color:var(--tx2)">I-enter ang iyong license key para ma-unlock ang lahat ng features</div></div><div class="fg"><label class="fl">License Key</label><input class="fi" type="text" id="actLicKey" placeholder="XXXXX-XXXXX-XXXXX-XXXXX" style="font-family:monospace;letter-spacing:2px;text-transform:uppercase;text-align:center;font-size:16px"></div><div id="actMsg" style="font-size:12px;text-align:center;margin-bottom:12px;display:none"></div><button class="btn pri" onclick="activateLicense()" style="width:100%;padding:12px;font-size:14px">I-Validate at I-Activate</button><hr class="fdivider"><div style="font-size:11px;color:var(--tx2);text-align:center">Hardware ID: <code id="hwId">OPI-ZERO3-A1B2C3D4</code><br>Ang license key ay naka-tie sa hardware ID na ito.</div></div></div></div><div class="page" id="pg-users"><div class="card"><div class="ch"><div class="ct">&#128101; Mga User</div></div><div class="cb"><p style="color:var(--tx2)">Tingnan ang dashboard para sa aktibong users.</p></div></div></div><div class="page" id="pg-sales"><div class="card"><div class="ch"><div class="ct">&#128202; Sales Report</div></div><div class="cb"><p style="color:var(--tx2)">Sales report â€” coming soon.</p></div></div></div><div class="page" id="pg-wifi"><div class="card"><div class="ch"><div class="ct">&#128246; WiFi Settings</div></div><div class="cb"><p style="color:var(--tx2)">Pumunta sa Settings para sa WiFi configuration.</p></div></div></div><div class="page" id="pg-bandwidth"><div class="card"><div class="ch"><div class="ct">&#9889; Bandwidth Management</div></div><div class="cb"><p style="color:var(--tx2)">Bandwidth settings â€” coming soon.</p></div></div></div><div class="page" id="pg-qos"><div class="card"><div class="ch"><div class="ct">&#127918; Gaming QoS</div></div><div class="cb"><p style="color:var(--tx2)">Gaming QoS settings â€” coming soon.</p></div></div></div><div class="page" id="pg-starlink"><div class="card"><div class="ch"><div class="ct">&#128752; Starlink Monitor</div></div><div class="cb"><p style="color:var(--tx2)">Starlink monitor â€” coming soon.</p></div></div></div><div class="page" id="pg-portal"><div class="card"><div class="ch"><div class="ct">&#127912; Portal Design</div></div><div class="cb"><p style="color:var(--tx2)">Portal design settings â€” coming soon.</p></div></div></div><div class="page" id="pg-logs"><div class="card"><div class="ch"><div class="ct">&#128203; System Logs</div></div><div class="cb"><p style="color:var(--tx2)">Logs â€” coming soon.</p></div></div></div></div></div><div class="modal-bg" id="modalAddRate"><div class="modal"><div class="mh"><div class="mt">&#128176; Rate</div><button class="mclose" onclick="closeModal('modalAddRate')">&#x2715;</button></div><div class="mc"><div class="fg"><label class="fl">Halaga ng Barya (piso)</label><input class="fi" type="number" id="mRateCoin" value="1" min="1"></div><div class="fg"><label class="fl">Minuto na Matatanggap</label><input class="fi" type="number" id="mRateMin" value="5" min="1"></div><div class="fg"><label class="fl">Label (optional)</label><input class="fi" type="text" id="mRateLabel" placeholder="e.g. Standard rate"></div></div><div class="mf"><button class="btn sec" onclick="closeModal('modalAddRate')">Kanselahin</button><button class="btn pri" onclick="saveRate()">I-Save</button></div></div></div><div class="toast" id="toast"></div><script>
+var curPage='dashboard';
+var _refreshTimer=null;
+
+// â”€â”€ Navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function nav(id,el){
+  document.querySelectorAll('.ni').forEach(function(n){n.classList.remove('on')});
+  if(el)el.classList.add('on');
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('on')});
+  var pg=document.getElementById('pg-'+id);
+  if(pg)pg.classList.add('on');
+  curPage=id;
+  var titles={dashboard:'Dashboard',users:'Mga User',vouchers:'Vouchers',sales:'Sales Report',wifi:'WiFi Settings',rates:'WiFi Rates',bandwidth:'Bandwidth',qos:'Gaming QoS',starlink:'Starlink Monitor',portal:'Portal Design',activation:'Activation',settings:'Settings',logs:'Logs'};
+  document.getElementById('pageTitle').textContent=titles[id]||id;
+  if(id==='users')loadUsers();
+  else if(id==='vouchers')loadVouchers();
+  else if(id==='rates')loadRates();
+  else if(id==='logs')loadLogs();
+  else if(id==='settings')loadSettings();
+  if(window.innerWidth<=640)closeSb();
+}
+
+// â”€â”€ Sidebar mobile â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function openSb(){document.getElementById('sb').classList.add('open');document.getElementById('ov').classList.add('show');}
+function closeSb(){document.getElementById('sb').classList.remove('open');document.getElementById('ov').classList.remove('show');}
+
+// â”€â”€ Clock â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function tick(){var n=new Date();document.getElementById('clock').textContent=n.toLocaleTimeString('en-PH',{hour:'2-digit',minute:'2-digit',second:'2-digit'});}
+tick();setInterval(tick,1000);
+
+// â”€â”€ Toast â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function toast(msg,type){var t=document.getElementById('toast');t.textContent=msg;t.className='toast '+(type||'ok')+' show';setTimeout(function(){t.classList.remove('show');},3000);}
+
+// â”€â”€ Logout â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function logout(){if(confirm('Mag-logout ka ba?'))window.location.href='/admin/logout';}
+
+// â”€â”€ Dashboard â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function loadDashboard(){
+  fetch('/admin/api/stats').then(function(r){return r.json();}).then(function(d){
+    var isTrial=d.activation_status==='trial';
+    var uEl=document.getElementById('statUsers');
+    if(uEl)uEl.innerHTML=isTrial?d.active_sessions+' <span style="font-size:14px;color:var(--tx2)">/ 2</span>':d.active_sessions;
+    // Revenue
+    var cards=document.querySelectorAll('.sc.bl .sv');
+    if(cards[0])cards[0].textContent='\u20b1'+d.total_revenue_today;
+    // Coins
+    var ywCards=document.querySelectorAll('.sc.yw .sv');
+    if(ywCards[0])ywCards[0].textContent=d.coin_count_today;
+    // Uptime
+    var puCards=document.querySelectorAll('.sc.pu .sv');
+    if(puCards[0]){var u=d.uptime_seconds;var days=Math.floor(u/86400);var hrs=Math.floor((u%86400)/3600);puCards[0].textContent=(days>0?days+'d ':'')+hrs+'h';}
+    // Activation banner
+    updateActBanner(d.activation_status);
+    // User badge
+    var badge=document.getElementById('uBadge');
+    if(badge)badge.textContent=d.active_sessions;
+  }).catch(function(){});
+  loadDiagnostics();
+}
+
+function updateActBanner(status){
+  var bar=document.getElementById('actBar');
+  var badge=document.getElementById('actBadge');
+  var title=document.getElementById('actTitle');
+  var sub=document.getElementById('actSub');
+  var btn=document.getElementById('actBtn');
+  if(!bar)return;
+  if(status==='activated'){
+    bar.classList.add('ok');
+    if(badge){badge.classList.add('ok');badge.textContent='ACTIVATED';}
+    if(title)title.textContent='Sistema ay fully activated';
+    if(sub)sub.textContent='Lahat ng features ay naka-unlock.';
+    if(btn){btn.textContent='\u2713 Activated';btn.style.background='var(--gr)';}
+  } else {
+    bar.classList.remove('ok');
+    if(badge){badge.classList.remove('ok');badge.textContent='TRIAL MODE';}
+    if(title)title.textContent='Hindi pa activated ang sistema';
+    if(sub)sub.textContent='2 users lang ang pwedeng kumonekta. I-activate para ma-unlock ang lahat ng features.';
+    if(btn){btn.textContent='I-Activate Ngayon';btn.style.background='var(--yw)';}
+  }
+}
+
+// â”€â”€ Diagnostics â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function loadDiagnostics(){
+  fetch('/admin/api/diagnostics').then(function(r){return r.json();}).then(function(d){
+    var dg=document.querySelectorAll('.di');
+    if(dg[0]){dg[0].querySelector('.dv').textContent=d.cpu_temp+'Â°C';dg[0].querySelector('.dv').style.color=d.cpu_temp>70?'var(--rd)':d.cpu_temp>55?'var(--yw)':'var(--gr)';var b=dg[0].querySelector('.dbf');if(b){b.style.width=Math.min(d.cpu_temp,100)+'%';b.className='dbf '+(d.cpu_temp>70?'rd':d.cpu_temp>55?'yw':'gr');}}
+    if(dg[1]){dg[1].querySelector('.dv').textContent=d.ram_usage_pct+'%';dg[1].querySelector('.dv').style.color=d.ram_usage_pct>85?'var(--rd)':d.ram_usage_pct>70?'var(--yw)':'var(--gr)';var b2=dg[1].querySelector('.dbf');if(b2){b2.style.width=d.ram_usage_pct+'%';b2.className='dbf '+(d.ram_usage_pct>85?'rd':d.ram_usage_pct>70?'yw':'gr');}}
+    if(dg[2]){dg[2].querySelector('.dv').textContent=d.disk_usage_pct+'%';var b3=dg[2].querySelector('.dbf');if(b3){b3.style.width=d.disk_usage_pct+'%';b3.className='dbf '+(d.disk_usage_pct>90?'rd':'gr');}}
+    if(dg[3]){dg[3].querySelector('.dv').textContent=d.wan_status==='online'?'Online':'Offline';dg[3].querySelector('.dv').style.color=d.wan_status==='online'?'var(--gr)':'var(--rd)';}
+    // Services
+    if(d.services){var svcs=document.querySelectorAll('.svc');d.services.forEach(function(svc,i){if(svcs[i]){var dot=svcs[i].querySelector('.dot');if(dot)dot.className='dot '+(svc.status==='active'?'ok':svc.status==='inactive'?'er':'wn');var u=svcs[i].querySelector('.svc-u');if(u)u.textContent=svc.status;}});}
+  }).catch(function(){});
+}
+
+// â”€â”€ Users â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function loadUsers(){
+  fetch('/admin/api/sessions').then(function(r){return r.json();}).then(function(rows){
+    var tbody=document.getElementById('usersTbody');
+    if(!tbody)return;
+    if(!rows.length){tbody.innerHTML='<tr><td colspan="6" style="text-align:center;color:var(--tx2);padding:20px">Walang aktibong users</td></tr>';return;}
+    tbody.innerHTML=rows.map(function(r){
+      var mins=Math.floor(r.remaining_seconds/60);var secs=r.remaining_seconds%60;
+      var timeStr=(mins<5?'<span style="color:var(--yw);font-weight:700">':'<span style="color:var(--gr);font-weight:700">')+mins+':'+(secs<10?'0':'')+secs+'</span>';
+      return '<tr><td><code>'+r.mac+'</code></td><td>'+(r.ip||'â€”')+'</td><td>'+timeStr+'</td><td>'+(r.bandwidth_tier||'Default')+'</td><td><span class="pill gr">Online</span></td><td><button class="btn-sm bl" onclick="addTime(this)" data-mac="'+r.mac+'">+Oras</button> <button class="btn-sm rd" onclick="kickUser(this)" data-mac="'+r.mac+'">Kick</button></td></tr>';
+    }).join('');
+  }).catch(function(){toast('Hindi ma-load ang users','er');});
+}
+
+function kickUser(btn){
+  var mac=btn.dataset.mac||btn.closest('tr').cells[0].textContent.trim();
+  if(!confirm('I-disconnect ang '+mac+'?'))return;
+  fetch('/admin/api/kick',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({mac:mac})}).then(function(){btn.closest('tr').remove();toast('User na-disconnect');}).catch(function(){toast('Error','er');});
+}
+
+function addTime(btn){
+  var mac=btn.dataset.mac||btn.closest('tr').cells[0].textContent.trim();
+  var mins=prompt('Ilang minuto ang idadagdag?','5');
+  if(!mins||isNaN(mins))return;
+  fetch('/admin/api/add_time',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({mac:mac,minutes:parseInt(mins)})}).then(function(){toast(mins+' minuto na-add sa '+mac);loadUsers();}).catch(function(){toast('Error','er');});
+}
+
+// â”€â”€ Vouchers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function generateVouchers(){
+  var dur=document.getElementById('vDuration').value;
+  var cnt=document.getElementById('vCount').value;
+  var pfx=document.getElementById('vPrefix').value;
+  var bw=document.getElementById('vBandwidth').value;
+  fetch('/admin/api/vouchers/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({count:parseInt(cnt),duration:parseInt(dur),prefix:pfx,bandwidth_tier:bw||null})}).then(function(r){return r.json();}).then(function(d){
+    var out=document.getElementById('voucherOutput');
+    if(!d.codes||!d.codes.length){out.innerHTML='<p style="color:var(--rd)">Error generating vouchers</p>';return;}
+    out.dataset.codes=d.codes.join('\n');
+    out.innerHTML=d.codes.map(function(c){return '<div class="vrow"><span class="vtag">'+c+'</span><span style="font-size:11px;color:var(--tx2)">'+dur+' min</span><button class="btn-sm bl" onclick="navigator.clipboard.writeText(\''+c+'\').then(function(){toast(\'Copied!\')})">Copy</button></div>';}).join('');
+    toast(d.codes.length+' vouchers na-generate!');
+  }).catch(function(){toast('Error','er');});
+}
+
+function loadVouchers(){
+  fetch('/admin/api/vouchers').then(function(r){return r.json();}).then(function(rows){
+    var tbody=document.getElementById('voucherTbody');
+    if(!tbody)return;
+    if(!rows.length){tbody.innerHTML='<tr><td colspan="6" style="text-align:center;color:var(--tx2);padding:20px">Walang vouchers</td></tr>';return;}
+    tbody.innerHTML=rows.map(function(r){
+      var status=r.used?'<span class="pill yw">Used</span>':'<span class="pill gr">Unused</span>';
+      var dt=r.created_at?r.created_at.substring(0,10):'â€”';
+      return '<tr><td><span class="vtag">'+r.code+'</span></td><td>'+r.minutes+' min</td><td>'+status+'</td><td>'+(r.used_by||'â€”')+'</td><td>'+dt+'</td><td><button class="btn-sm rd" onclick="deleteVoucher(this)" data-id="'+r.id+'">Delete</button></td></tr>';
+    }).join('');
+  }).catch(function(){toast('Hindi ma-load ang vouchers','er');});
+}
+
+function deleteVoucher(btn){
+  var id=btn.dataset.id;
+  if(!confirm('I-delete ang voucher na ito?'))return;
+  fetch('/admin/api/vouchers/'+id,{method:'DELETE'}).then(function(){btn.closest('tr').remove();toast('Voucher na-delete');}).catch(function(){toast('Error','er');});
+}
+
+function filterVouchers(){
+  var search=document.getElementById('vSearch').value.toLowerCase();
+  var filter=document.getElementById('vFilter').value;
+  document.querySelectorAll('#voucherTbody tr').forEach(function(tr){
+    var code=tr.cells[0]?tr.cells[0].textContent.toLowerCase():'';
+    var used=tr.cells[2]?tr.cells[2].textContent.toLowerCase():'';
+    var matchSearch=!search||code.includes(search);
+    var matchFilter=!filter||(filter==='used'&&used.includes('used')&&!used.includes('unused'))||(filter==='unused'&&used.includes('unused'));
+    tr.style.display=(matchSearch&&matchFilter)?'':'none';
+  });
+}
+
+function copyAll(){var codes=document.getElementById('voucherOutput').dataset.codes||'';if(!codes){toast('Walang codes','er');return;}navigator.clipboard.writeText(codes).then(function(){toast('Lahat ng codes na-copy!');});}
+
+function exportTxt(){
+  fetch('/admin/api/vouchers/export').then(function(r){return r.blob();}).then(function(blob){
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='vouchers.txt';a.click();toast('Vouchers na-export!');
+  }).catch(function(){toast('Error','er');});
+}
+
+function clearGenerated(){document.getElementById('voucherOutput').innerHTML='<p style="color:var(--tx2);font-size:13px;text-align:center;padding:20px 0">I-click ang Generate para lumikha ng mga voucher codes.</p>';}
+
+// â”€â”€ WiFi Rates â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function loadRates(){
+  fetch('/admin/api/rates').then(function(r){return r.json();}).then(function(rates){
+    var grid=document.getElementById('ratesGrid');
+    if(!grid||!rates.length)return;
+    grid.innerHTML=rates.map(function(r){
+      var hrs=r.minutes>=60?Math.floor(r.minutes/60)+' oras'+(r.minutes%60?' '+r.minutes%60+' min':''):r.minutes+' minuto';
+      return '<div class="rate-card" data-piso="'+r.piso+'" data-minutes="'+r.minutes+'"><div class="rate-coin">\u20b1'+r.piso+'</div><div class="rate-time">= '+hrs+'</div><div class="rate-actions"><button class="btn-sm bl" onclick="editRate(this,'+r.piso+','+r.minutes+')">Edit</button><button class="btn-sm rd" onclick="deleteRate(this)">Delete</button></div></div>';
+    }).join('');
+  }).catch(function(){});
+}
+
+function saveRates(){
+  var cards=document.querySelectorAll('#ratesGrid .rate-card');
+  var rates=[];
+  cards.forEach(function(c){rates.push({piso:parseInt(c.dataset.piso),minutes:parseInt(c.dataset.minutes)});});
+  // Also save rate settings
+  var defRate=document.getElementById('defaultRate');
+  var timeout=document.getElementById('pulseTimeout');
+  var cfg={};
+  if(defRate)cfg.rate_piso_per_minute=defRate.value;
+  if(timeout)cfg.coin_pulse_timeout_ms=timeout.value;
+  Promise.all([
+    fetch('/admin/api/rates',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(rates)}),
+    Object.keys(cfg).length?fetch('/admin/api/config',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(cfg)}):Promise.resolve()
+  ]).then(function(){toast('Rates na-save!');}).catch(function(){toast('Error','er');});
+}
+
+function resetRates(){if(!confirm('I-reset ang rates sa default?'))return;fetch('/admin/api/rates',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify([{piso:1,minutes:5},{piso:5,minutes:30},{piso:10,minutes:60},{piso:20,minutes:150}])}).then(function(){loadRates();toast('Rates na-reset!');});}
+
+function showAddRate(){document.getElementById('mRateCoin').value='';document.getElementById('mRateMin').value='';document.getElementById('mRateLabel').value='';document.getElementById('modalAddRate').classList.add('show');}
+function closeModal(id){document.getElementById(id).classList.remove('show');}
+
+function saveRate(){
+  var coin=parseInt(document.getElementById('mRateCoin').value);
+  var min=parseInt(document.getElementById('mRateMin').value);
+  if(!coin||!min){toast('Ilagay ang coin value at minuto','er');return;}
+  var grid=document.getElementById('ratesGrid');
+  var card=document.createElement('div');
+  card.className='rate-card';card.dataset.piso=coin;card.dataset.minutes=min;
+  var hrs=min>=60?Math.floor(min/60)+' oras'+(min%60?' '+min%60+' min':''):min+' minuto';
+  card.innerHTML='<div class="rate-coin">\u20b1'+coin+'</div><div class="rate-time">= '+hrs+'</div><div class="rate-actions"><button class="btn-sm bl" onclick="editRate(this,'+coin+','+min+')">Edit</button><button class="btn-sm rd" onclick="deleteRate(this)">Delete</button></div>';
+  grid.appendChild(card);
+  closeModal('modalAddRate');toast('Rate na-add!');
+}
+
+function editRate(btn,coin,min){document.getElementById('mRateCoin').value=coin;document.getElementById('mRateMin').value=min;document.getElementById('modalAddRate').classList.add('show');}
+function deleteRate(btn){if(confirm('I-delete ang rate na ito?'))btn.closest('.rate-card').remove();toast('Rate na-delete');}
+
+// â”€â”€ WiFi Settings â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function saveWifi(){
+  var data={ssid:document.getElementById('ssid').value,password:document.getElementById('wifiPass').value,channel:document.getElementById('wifiCh').value,band:document.getElementById('wifiBand').value};
+  fetch('/admin/api/wifi',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).then(function(r){return r.json();}).then(function(d){if(d.error)toast(d.error,'er');else toast('WiFi settings na-save! Ire-restart ang hostapd...');}).catch(function(){toast('Error','er');});
+}
+
+// â”€â”€ Admin Password â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function changePassword(){
+  var cur=document.getElementById('curPass').value;
+  var nw=document.getElementById('newPass').value;
+  var cf=document.getElementById('confPass').value;
+  var msg=document.getElementById('passMsg');
+  msg.style.display='block';
+  if(!cur){msg.style.color='var(--rd)';msg.textContent='Ilagay ang kasalukuyang password.';return;}
+  if(nw.length<8){msg.style.color='var(--rd)';msg.textContent='Ang password ay dapat may hindi bababa sa 8 na karakter.';return;}
+  if(nw!==cf){msg.style.color='var(--rd)';msg.textContent='Hindi magkatugma ang mga password.';return;}
+  fetch('/admin/api/password',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({current:cur,new_password:nw})}).then(function(r){return r.json();}).then(function(d){if(d.error){msg.style.color='var(--rd)';msg.textContent=d.error;}else{msg.style.color='var(--gr)';msg.textContent='\u2713 Password nabago. Mag-login ulit.';toast('Password nabago!');setTimeout(function(){window.location.href='/admin/logout';},2000);}}).catch(function(){toast('Error','er');});
+}
+
+// â”€â”€ Settings â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function loadSettings(){
+  fetch('/admin/api/config').then(function(r){return r.json();}).then(function(cfg){
+    if(cfg.ssid&&document.getElementById('ssid'))document.getElementById('ssid').value=cfg.ssid;
+    if(cfg.wifi_channel&&document.getElementById('wifiCh'))document.getElementById('wifiCh').value=cfg.wifi_channel;
+    if(cfg.coin_sound_enabled!==undefined&&document.getElementById('coinSound'))document.getElementById('coinSound').checked=cfg.coin_sound_enabled==='1';
+    if(cfg.coin_pulse_timeout_ms&&document.getElementById('pulseTimeout'))document.getElementById('pulseTimeout').value=cfg.coin_pulse_timeout_ms;
+    if(cfg.rate_piso_per_minute&&document.getElementById('defaultRate'))document.getElementById('defaultRate').value=cfg.rate_piso_per_minute;
+  }).catch(function(){});
+  loadActivationStatus();
+}
+
+function saveSettings(){
+  var cfg={coin_sound_enabled:document.getElementById('coinSound')&&document.getElementById('coinSound').checked?'1':'0'};
+  fetch('/admin/api/config',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(cfg)}).then(function(){toast('Settings na-save!');}).catch(function(){toast('Error','er');});
+}
+
+function backupDB(){window.location.href='/admin/api/backup';}
+function restoreDB(){toast('I-upload ang .db file sa restore endpoint','er');}
+
+// â”€â”€ Activation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function loadActivationStatus(){
+  fetch('/admin/api/activation_status').then(function(r){return r.json();}).then(function(d){
+    updateActBanner(d.status);
+    var hwEl=document.getElementById('hwId');
+    if(hwEl&&d.hardware_id)hwEl.textContent=d.hardware_id;
+    var actSt=document.getElementById('actStatus');
+    if(actSt){
+      var dot=actSt.querySelector('.dot');
+      var title=actSt.querySelector('div div:first-child');
+      var sub=actSt.querySelector('div div:last-child');
+      if(d.status==='activated'){
+        if(dot)dot.className='dot ok';
+        if(title)title.textContent='ACTIVATED';
+        if(sub)sub.textContent='Sistema ay fully activated. License: '+(d.masked_key||'')+(d.activated_at?' \u00b7 '+d.activated_at.substring(0,10):'');
+      }
+    }
+  }).catch(function(){});
+}
+
+function activateLicense(){
+  var k=(document.getElementById('licKey')||document.getElementById('actLicKey'));
+  if(!k)return;
+  var key=k.value.trim().toUpperCase();
+  if(!key){toast('Ilagay ang license key','er');return;}
+  fetch('/admin/api/activate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({key:key})}).then(function(r){return r.json();}).then(function(d){
+    var msg=document.getElementById('actMsg');
+    if(d.error){if(msg){msg.style.display='block';msg.style.color='var(--rd)';msg.textContent=d.error;}toast(d.error,'er');}
+    else{if(msg){msg.style.display='block';msg.style.color='var(--gr)';msg.textContent='\u2713 Sistema ay matagumpay na na-activate!';}toast('Sistema ay na-activate!');loadActivationStatus();}
+  }).catch(function(){toast('Error','er');});
+}
+
+// â”€â”€ Logs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+function loadLogs(){
+  fetch('/admin/api/logs').then(function(r){return r.json();}).then(function(d){
+    var pg=document.getElementById('pg-logs');
+    if(!pg)return;
+    pg.innerHTML='<div class="card" style="margin-bottom:14px"><div class="ch"><div class="ct">\ud83e\udea9 Coin Log</div></div><div class="cb"><pre style="font-size:11px;color:var(--tx2);white-space:pre-wrap;max-height:200px;overflow-y:auto">'+(d.coin||'(empty)')+'</pre></div></div><div class="card" style="margin-bottom:14px"><div class="ch"><div class="ct">\u23f1 Session Log</div></div><div class="cb"><pre style="font-size:11px;color:var(--tx2);white-space:pre-wrap;max-height:200px;overflow-y:auto">'+(d.session||'(empty)')+'</pre></div></div><div class="card"><div class="ch"><div class="ct">\ud83d\udcbb System Log</div></div><div class="cb"><pre style="font-size:11px;color:var(--tx2);white-space:pre-wrap;max-height:200px;overflow-y:auto">'+(d.system||'(empty)')+'</pre></div></div>';
+  }).catch(function(){toast('Hindi ma-load ang logs','er');});
+}
+
+// â”€â”€ Auto-refresh â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+window.addEventListener('load',function(){
+  loadDashboard();
+  loadActivationStatus();
+  setInterval(function(){if(curPage==='dashboard')loadDashboard();},10000);
+});
+</script>
+</body></html>

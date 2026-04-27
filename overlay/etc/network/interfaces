@@ -1,0 +1,23 @@
+source /etc/network/interfaces.d/*
+
+auto lo
+iface lo inet loopback
+
+# WAN interface — built-in ethernet (eth0) connects to modem/router
+# Supports VLAN tagging (e.g., VLAN 22 for 5v5 modem)
+# DHCP is handled by detect_wan.sh at boot
+auto eth0
+iface eth0 inet manual
+    up ip link set eth0 up
+
+# Hotspot interface — static IP for captive portal
+# USB WiFi dongle (wlan0) serves as the customer hotspot
+auto wlan0
+iface wlan0 inet static
+    address 10.0.0.1
+    netmask 255.255.255.0
+    broadcast 10.0.0.255
+
+# USB-to-LAN adapter (optional) — secondary LAN or wired client port
+# Automatically detected and configured by detect_wan.sh if present
+# usb0 / eth1 — plug-and-play, no static config needed

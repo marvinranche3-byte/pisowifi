@@ -1,0 +1,58 @@
+[build] 22:45:21 === PotsWorks PisoWifi Image Builder ===
+[build] 22:45:21 Board: orangepi1
+[build] 22:45:21 Log: /home/kimvin101122/potsworks-pisowifi/build_20260427_224521.log
+[build] 22:45:21 Copying userpatches...
+[build] 22:45:21 Building image for orangepi1...
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'BUILD_MINIMAL': '(unset)' --> 'yes' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'COMPRESS_OUTPUTIMAGE': '(unset)' --> 'sha,img' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'BUILD_DESKTOP': '(unset)' --> 'no' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'USERPATCHES_PATH': '(unset)' --> '/home/kimvin101122/potsworks-pisowifi/armbian-build/userpatches' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'BRANCH': '(unset)' --> 'current' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'BOARD': '(unset)' --> 'orangepi1' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'RELEASE': '(unset)' --> 'bookworm' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'KERNEL_CONFIGURE': '(unset)' --> 'no' early [0m][0m
+/home/kimvin101122/potsworks-pisowifi/armbian-build/lib/functions/host/docker.sh: line 57: docker: command not found
+[0m[1;30m[💲|[0m🚸[0m] [0mThis script requires root privileges; Docker is unavailable [[1;35m trying to use sudo [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'PREFER_DOCKER': '(unset)' --> 'no' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'BUILD_MINIMAL': '(unset)' --> 'yes' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'COMPRESS_OUTPUTIMAGE': '(unset)' --> 'sha,img' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'BUILD_DESKTOP': '(unset)' --> 'no' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'USERPATCHES_PATH': '(unset)' --> '/home/kimvin101122/potsworks-pisowifi/armbian-build/userpatches' early [0m][0m
+[0m[1;30m[💲|[0m🌱[0m] [0mSkip     cmdline param [[1;32m 'ARMBIAN_RELAUNCHED': already set to 'yes' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'BRANCH': '(unset)' --> 'current' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'BOARD': '(unset)' --> 'orangepi1' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'SET_OWNER_TO_UID': '(unset)' --> '1000' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'RELEASE': '(unset)' --> 'bookworm' early [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mApplying cmdline param [[1;39m 'KERNEL_CONFIGURE': '(unset)' --> 'no' early [0m][0m
+[0m[1;30m[💲|[0m🌱[0m] [0mStarting single build process [[1;32m orangepi1 [0m][0m
+[0m[1;30m[💲|[0m🌱[0m] [0mChecking [[1;32m basic host setup [0m][0m
+[0m[1;30m[💲|[0m🌱[0m] [0mBuild host OS release [[1;32m noble [0m][0m
+[0m[1;30m[💲|[0m🌱[0m] [0mBuild host architecture [[1;32m amd64 [0m][0m
+[0m[1;30m[💲|[0m🌱[0m] [0mDetected WSL2 - experimental support [[1;32m Windows Subsystem for Linux 2 [0m][0m
+[0m[1;30m[💲|[0m💥[0m] [0merror! [[1;31m No such BOARD 'orangepi1'; no board config file found.  [0m][0m
+[0m[1;30m[💲|[0m💥[0m] [0m    👇👇👇 Showing logfile below 👇👇👇 [[1;31m /home/kimvin101122/potsworks-pisowifi/armbian-build/.tmp/logs-c247a608-61a3-494f-b42f-36761f1475e4/004.000.config_source_board_file.log [0m][0m
+[0me[1;30m[💲|[0m👉]    --> (0) [1;31mERROR[0m: error! [ [1;31mNo such BOARD 'orangepi1'; no board config file found. [0m ]
+[0m[1;30m[💲|[0m💥[0m] [0m    👆👆👆 Showing logfile above 👆👆👆 [[1;31m /home/kimvin101122/potsworks-pisowifi/armbian-build/.tmp/logs-c247a608-61a3-494f-b42f-36761f1475e4/004.000.config_source_board_file.log [0m][0m
+[0m[1;30m[💲|[0m💥[0m] [0mExiting with error 43 [[1;31m at /home/kimvin101122/potsworks-pisowifi/armbian-build/lib/functions/logging/traps.sh:1
+[0;31m                exit_with_error() --> lib/functions/logging/traps.sh:1
+[0;31m       config_source_board_file() --> lib/functions/main/config-prepare.sh:130
+[0;31m                do_with_logging() --> lib/functions/logging/section-logging.sh:85
+[0;31m    do_with_conditional_logging() --> lib/functions/logging/section-logging.sh:111
+[0;31m    prep_conf_main_build_single() --> lib/functions/main/config-prepare.sh:23
+[0;31m         cli_standard_build_run() --> lib/functions/cli/cli-build.sh:22
+[0;31m        armbian_cli_run_command() --> lib/functions/cli/utils-cli.sh:136
+[0;31m                 cli_entrypoint() --> lib/functions/cli/entrypoint.sh:208
+[0;31m                           main() --> compile.sh:50
+ [0m][0m
+[0m[1;30m[💲|[0m💥[0m] [0mCleaning up [[1;31m please wait for cleanups to finish [0m][0m
+[0m[1;30m[💲|[0m✨[0m] [0mRepeat Build Options [[1;32m ./compile.sh build BOARD=orangepi1 BRANCH=current BUILD_DESKTOP=no BUILD_MINIMAL=yes COMPRESS_OUTPUTIMAGE=sha,img KERNEL_CONFIGURE=no RELEASE=bookworm USERPATCHES_PATH=/home/kimvin101122/potsworks-pisowifi/armbian-build/userpatches [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mANSI log file built; inspect it by running: [[1;39m less -RS output/logs/log-build-c247a608-61a3-494f-b42f-36761f1475e4.log.ans [0m][0m
+[0m[1;30m[💲|[0m🌱[0m] [0mShare log manually: [[1;32m use one of the commands below (or add SHARE_LOG=yes next time!) [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mShare log manually: [[1;39m curl --data-binary @output/logs/log-build-c247a608-61a3-494f-b42f-36761f1475e4.log.ans https://paste.armbian.com/log [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mShare log manually: [[1;39m curl --data-binary @output/logs/log-build-c247a608-61a3-494f-b42f-36761f1475e4.log.ans https://paste.armbian.de/log [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mShare log manually: [[1;39m curl --data-binary @output/logs/log-build-c247a608-61a3-494f-b42f-36761f1475e4.log.ans https://paste.next.armbian.com/log [0m][0m
+[0m[1;30m[💲|[0m🌿[0m] [0mShare log manually: [[1;39m curl --data-binary @output/logs/log-build-c247a608-61a3-494f-b42f-36761f1475e4.log.ans https://paste.armbian.eu/log [0m][0m
+[build] 22:45:30 Build complete for orangepi1
+[build] 22:45:30 Output: /home/kimvin101122/potsworks-pisowifi/armbian-build/output/images/
+[build] 22:45:30 === All builds complete ===
+[build] 22:45:30 Images are in: /home/kimvin101122/potsworks-pisowifi/armbian-build/output/images/

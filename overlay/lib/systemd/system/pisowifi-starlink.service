@@ -1,0 +1,17 @@
+[Unit]
+Description=PotsWorks PisoWifi Starlink Anti-Throttle Monitor
+After=pisowifi-backend.service network.target
+Wants=pisowifi-backend.service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/python3 /opt/pisowifi/scripts/starlink_monitor.py
+Restart=on-failure
+RestartSec=30
+StandardOutput=journal
+StandardError=journal
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

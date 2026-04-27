@@ -1,0 +1,18 @@
+[Unit]
+Description=PotsWorks PisoWifi Session Manager
+After=pisowifi-backend.service
+Requires=pisowifi-backend.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/pisowifi/backend
+ExecStart=/usr/bin/python3 /opt/pisowifi/backend/session_manager.py
+Restart=always
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
