@@ -8,7 +8,7 @@
 #   - At least 30GB free disk space
 #
 # Usage:
-#   ./build.sh [orangepi1|orangepipc|orangepizero3]
+#   ./build.sh [orangepione|orangepipc|orangepizero3]
 #   ./build.sh all   (build all three boards)
 
 set -e
@@ -23,7 +23,7 @@ err() { echo "[build] ERROR: $*" | tee -a "$BUILD_LOG" >&2; exit 1; }
 
 # ── Validate board ────────────────────────────────────────────────────────────
 case "$BOARD" in
-    orangepi1|orangepipc|orangepizero3|all) ;;
+    orangepione|orangepipc|orangepizero3|all) ;;
     *) err "Unknown board: $BOARD. Use: orangepi1, orangepipc, orangepizero3, all" ;;
 esac
 

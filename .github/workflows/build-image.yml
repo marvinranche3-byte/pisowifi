@@ -6,10 +6,10 @@ on:
       board:
         description: 'Board to build'
         required: true
-        default: 'orangepi1'
+        default: 'orangepione'
         type: choice
         options:
-          - orangepi1
+          - orangepione
           - orangepipc
           - orangepizero3
 
