@@ -25,12 +25,11 @@ jobs:
         run: |
           sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc
           sudo apt-get clean
-          df -h
 
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y git curl qemu-user-static binfmt-support
+          sudo apt-get install -y git curl qemu-user-static
 
       - name: Clone Armbian build framework
         run: git clone --depth=1 https://github.com/armbian/build.git armbian-build
@@ -52,7 +51,9 @@ jobs:
             BUILD_DESKTOP=no \
             KERNEL_CONFIGURE=no \
             COMPRESS_OUTPUTIMAGE=sha,img \
-            USERPATCHES_PATH=$(pwd)/userpatches
+            USERPATCHES_PATH=$(pwd)/userpatches \
+            PREFER_DOCKER=no \
+            EXPERT=yes
 
       - name: Upload image
         uses: actions/upload-artifact@v4
